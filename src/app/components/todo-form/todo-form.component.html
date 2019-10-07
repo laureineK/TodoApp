@@ -1,0 +1,24 @@
+<form [formGroup]="TodoForm" (ngSubmit)="OnSubmit()">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>New Todo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="content">
+        <mat-form-field appearance="outline">
+          <mat-label>Todo Name</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error *ngIf="TodoForm.controls['name'].invalid">Name is required!</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="description">
+          <mat-label>Todo Description</mat-label>
+          <textarea rows="3" matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="footer">
+      <button mat-stroked-button color="blue" [disabled]="TodoForm.invalid" type="submit">Create</button>
+      <a mat-stroked-button color="blue" [routerLink]="['/todos']">Back</a>
+    </mat-card-actions>
+  </mat-card>
+</form>

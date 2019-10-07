@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-card {
+  min-width: 800px;
+  max-width: 100%;
+  min-height: 200px;
+
+  .title {
+    text-align: center;
+  }
+
+  .done {
+    text-decoration: line-through;
+    color: grey;
+  }
+
+  .todo-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    a {
+      width: 100%;
+    }
+  }
+}

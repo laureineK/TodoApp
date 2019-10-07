@@ -1,0 +1,21 @@
+<mat-card *ngIf="Todo$ | async; let Todo; else: isLoading" class="details-card">
+  <mat-card-header>
+    <mat-card-title>{{ Todo?.name }}</mat-card-title>
+    <mat-card-subtitle><strong>Details</strong></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <div>
+      State: {{ Todo.isDone ? 'Done' : 'Undone' }}
+    </div>
+    <div>
+      Description: {{ Todo.description }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="footer">
+    <a mat-stroked-button color="blue" [routerLink]="['/todos']">Back</a>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #isLoading>
+  <mat-spinner></mat-spinner>
+</ng-template>
