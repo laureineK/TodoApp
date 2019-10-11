@@ -5,7 +5,7 @@ import * as TodoActions from './../actions/todo.actions';
 import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
-import { TodoService } from './../services/todo.service';
+import { TodoService } from '../services/todo.service';
 
 @Injectable()
 export class TodoEffects {
@@ -18,7 +18,7 @@ export class TodoEffects {
   fetchTodos$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(TodoActions.fetch),
-      mergeMap(() => this.todoService.List()
+      mergeMap(() => this.todoService.list()
         .pipe(
           map(todos => TodoActions.receive({ todos })),
           catchError(() => of(TodoActions.receive({ todos: [] }))
@@ -28,7 +28,7 @@ export class TodoEffects {
   createTodo$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(TodoActions.create),
-      mergeMap((action) => this.todoService.Create(action.todo)
+      mergeMap((action) => this.todoService.create(action.todo)
         .pipe(
           map(todo => TodoActions.created({ todo })),
           catchError(() => of(TodoActions.createFail()))
@@ -38,7 +38,7 @@ export class TodoEffects {
   updateTodo$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(TodoActions.update),
-      mergeMap((action) => this.todoService.Update(action.todo)
+      mergeMap((action) => this.todoService.update(action.todo)
         .pipe(
           map(todo => TodoActions.updated({ todo })),
           catchError(() => of(TodoActions.updateFail()))

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ITodo } from 'src/app/models/ITodo';
@@ -12,7 +12,7 @@ import { IState as TodoState } from './../../reducers/todo.reducer';
 })
 export class TodoFormComponent implements OnInit {
   public TodoForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private store: Store<{ todo: TodoState }>, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private store: Store<{ todo: TodoState }>) {}
 
   ngOnInit() {
     this.initTodoForm();
@@ -25,7 +25,7 @@ export class TodoFormComponent implements OnInit {
     });
   }
 
-  public OnSubmit(): void {
+  public onSubmit(): void {
     if (this.TodoForm.valid) {
       const todo: Partial<ITodo> = {
         name: this.TodoForm.value.name,

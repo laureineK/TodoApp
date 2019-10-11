@@ -48,7 +48,7 @@ describe('TodoPageComponent', () => {
     // arrange
     const todo = { id: 1, name: 'Call Eva', isDone: true, description: 'She must finish my tasks', createdAt: new Date() };
     // act
-    component.OnTodoToggle(todo);
+    component.onTodoToggle(todo);
     // assert
     const action = TodoActions.update({ id: 1, todo });
     expect(store.dispatch).toHaveBeenCalledWith(action);

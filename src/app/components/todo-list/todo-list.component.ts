@@ -13,12 +13,12 @@ export class TodoListComponent implements OnInit {
   constructor(private router: Router) { }
   ngOnInit() {
   }
-  public OnClickToggleTodo(todo: ITodo) {
+  public onClickToggleTodo(todo: ITodo) {
     todo.isDone = !todo.isDone;
     this.todoToggle.emit(todo);
   }
 
-  public OnClickNavigate(event: Event, todoId: number) {
+  public onClickNavigate(event: Event, todoId: number) {
     event.stopPropagation();
     this.router.navigate(['todos', todoId, 'details']);
   }

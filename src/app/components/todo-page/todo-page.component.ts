@@ -20,7 +20,7 @@ export class TodoPageComponent implements OnInit {
     this.store.dispatch(TodoActions.fetch());
   }
 
-  public OnTodoToggle(todo: ITodo) {
+  public onTodoToggle(todo: ITodo) {
     this.store.dispatch(
       TodoActions.update({
         id: todo.id,

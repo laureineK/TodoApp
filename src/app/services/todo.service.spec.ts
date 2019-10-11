@@ -29,7 +29,7 @@ describe('TodoService', () => {
 
   it('should fetch todo list', done => {
     // act
-    service.List().subscribe(res => {
+    service.list().subscribe(res => {
       // assert
       expect(res).toEqual(todoList);
       done();
@@ -52,7 +52,7 @@ describe('TodoService', () => {
       ...todoList[0],
       isDone: !todoList[0].isDone,
     };
-    service.Update(todo).subscribe(updatedTodo => {
+    service.update(todo).subscribe(updatedTodo => {
       // assert
       expect(updatedTodo).toEqual(expected);
       done();
@@ -78,7 +78,7 @@ describe('TodoService', () => {
       createdAt: new Date(),
       isDone: false,
     };
-    service.Create(todo).subscribe(createdTodo => {
+    service.create(todo).subscribe(createdTodo => {
       // assert
       expect(createdTodo).toEqual(expected);
       done();

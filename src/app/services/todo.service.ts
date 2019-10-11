@@ -11,28 +11,28 @@ const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json',
   providedIn: 'root',
 })
 export class TodoService implements ITodoService {
-  private static readonly url = '/api/todos';
   constructor(private httpClient: HttpClient) {}
+  private static readonly url = '/api/todos';
 
-  public List(): Observable<ITodo[]> {
-    return this.httpClient.get<ITodo[]>(TodoService.url).pipe(catchError(this.handleError));
+  private static handleError(error: any) {
+    console.error(error);
+    return throwError(error);
   }
 
-  public Update(todo: ITodo): Observable<ITodo> {
+  public list(): Observable<ITodo[]> {
+    return this.httpClient.get<ITodo[]>(TodoService.url).pipe(catchError(TodoService.handleError));
+  }
+
+  public update(todo: ITodo): Observable<ITodo> {
     const url = `${TodoService.url}/${todo.id}`;
     return this.httpClient.put<ITodo>(url, todo, options).pipe(
       map(() => todo),
-      catchError(this.handleError),
+      catchError(TodoService.handleError),
     );
   }
 
-  public Create(todo: Partial<ITodo>): Observable<ITodo> {
+  public create(todo: Partial<ITodo>): Observable<ITodo> {
     todo.createdAt = new Date();
-    return this.httpClient.post<ITodo>(TodoService.url, todo, options).pipe(catchError(this.handleError));
-  }
-
-  private handleError(error: any) {
-    console.error(error);
-    return throwError(error);
+    return this.httpClient.post<ITodo>(TodoService.url, todo, options).pipe(catchError(TodoService.handleError));
   }
 }

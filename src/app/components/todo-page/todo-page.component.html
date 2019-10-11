@@ -2,5 +2,5 @@
 
 <ng-template #isLoaded>
   <app-todo-list [DoneTodoList]="DoneTodoList$ | async" [UndoneTodoList]="UndoneTodoList$ | async"
-    (todoToggle)="OnTodoToggle($event)"></app-todo-list>
+    (todoToggle)="onTodoToggle($event)"></app-todo-list>
 </ng-template>

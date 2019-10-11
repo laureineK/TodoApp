@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule} from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule, Store } from '@ngrx/store';
@@ -54,15 +54,15 @@ describe('TodoFormComponent', () => {
       description: '',
     };
     // act
-    component.OnSubmit();
+    component.onSubmit();
     // assert
     const action = TodoActions.create({ todo: newTodo });
     expect(store.dispatch).toHaveBeenCalledWith(action);
   });
 
-  it("shouldn't submit when form is invalid", () => {
+  it('shouldn\'t submit when form is invalid', () => {
     // act
-    component.OnSubmit();
+    component.onSubmit();
     // assert
     expect(store.dispatch).toHaveBeenCalledTimes(0);
   });
