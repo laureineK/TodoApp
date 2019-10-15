@@ -1,4 +1,4 @@
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import * as TodoActions from './../actions/todo.actions';
@@ -9,7 +9,6 @@ import { TodoService } from '../services/todo.service';
 
 @Injectable()
 export class TodoEffects {
-
   constructor(
     private actions$: Actions,
     private todoService: TodoService,

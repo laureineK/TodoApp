@@ -2,7 +2,7 @@ import * as TodoActions from './../actions/todo.actions';
 import * as TodoReducer from './todo.reducer';
 
 describe('Todo Selectors', () => {
-  let initialTodoState: TodoReducer.IState;
+  let initialTodoState: TodoReducer.TodoState;
   beforeEach(() => {
     initialTodoState = {
       isLoaded: false,
@@ -32,21 +32,24 @@ describe('Todo Selectors', () => {
   });
 
   it('should select all todos', () => {
+    // @ts-ignore
     expect(TodoReducer.selectAllTodos(initialTodoState).length).toBe(initialTodoState.todos.length);
   });
 
   it('should select completed todos', () => {
+    // @ts-ignore
     expect(TodoReducer.selectDoneTodoList(initialTodoState).length).toBe(1);
   });
 
   it('should select not completed todos', () => {
+    // @ts-ignore
     expect(TodoReducer.selectUndoneTodoList(initialTodoState).length).toBe(2);
   });
 });
 
 describe('Todo Reducers', () => {
 
-  let initialTodoState: TodoReducer.IState;
+  let initialTodoState: TodoReducer.TodoState;
   beforeEach(() => {
     initialTodoState = {
       isLoaded: false,

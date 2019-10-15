@@ -6,7 +6,7 @@ import { StoreModule, Store } from '@ngrx/store';
 import { SharedModule } from 'src/app/shared.module';
 import { TodoFormComponent } from './todo-form.component';
 import * as TodoActions from './../../actions/todo.actions';
-import { IState as TodoState, reducer as TodoReducer } from './../../reducers/todo.reducer';
+import { TodoState as TodoState, reducer as TodoReducer } from './../../reducers/todo.reducer';
 import { ITodo } from 'src/app/models/ITodo';
 
 describe('TodoFormComponent', () => {

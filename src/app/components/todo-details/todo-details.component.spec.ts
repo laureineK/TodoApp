@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { SharedModule } from 'src/app/shared.module';
-import { IState as TodoState, reducer as TodoReducer } from './../../reducers/todo.reducer';
+import { TodoState as TodoState, reducer as TodoReducer } from './../../reducers/todo.reducer';
 import { TodoDetailsComponent } from './todo-details.component';
 
 describe('TodoDetailsComponent', () => {

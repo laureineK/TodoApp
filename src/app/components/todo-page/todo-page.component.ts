@@ -3,7 +3,11 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ITodo } from 'src/app/models/ITodo';
 import * as TodoActions from './../../actions/todo.actions';
-import { IState as TodoState, selectDoneTodoList, selectUndoneTodoList } from './../../reducers/todo.reducer';
+import {
+  selectDoneTodoList,
+  selectUndoneTodoList,
+  selectIsFetching, IState
+} from '../../reducers/todo.reducer';
 
 @Component({
   selector: 'app-todo-page',
@@ -11,10 +15,10 @@ import { IState as TodoState, selectDoneTodoList, selectUndoneTodoList } from '.
   styleUrls: ['./todo-page.component.scss'],
 })
 export class TodoPageComponent implements OnInit {
-  public UndoneTodoList$: Observable<ITodo[]> = this.store.select(state => selectUndoneTodoList(state.todo));
-  public DoneTodoList$: Observable<ITodo[]> = this.store.select(state => selectDoneTodoList(state.todo));
-  public IsFetching: Observable<boolean> = this.store.select(state => state.todo.isFetching);
-  constructor(private store: Store<{ todo: TodoState }>) {}
+  undoneTodoList$: Observable<ITodo[]> = this.store.select(selectUndoneTodoList);
+  doneTodoList$: Observable<ITodo[]> = this.store.select(selectDoneTodoList);
+  isFetching: Observable<boolean> = this.store.select(selectIsFetching);
+  constructor(private store: Store<IState>) {}
 
   ngOnInit() {
     this.store.dispatch(TodoActions.fetch());

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ITodo } from 'src/app/models/ITodo';
 import * as TodoActions from './../../actions/todo.actions';
-import { IState as TodoState } from './../../reducers/todo.reducer';
+import { TodoState as TodoState } from './../../reducers/todo.reducer';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',

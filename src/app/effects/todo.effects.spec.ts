@@ -7,6 +7,7 @@ import { SharedModule } from '../shared.module';
 import { TodoEffects } from './todo.effects';
 
 describe('Todo Effects', () => {
+  // tslint:disable-next-line:prefer-const
   let actions$: ReplaySubject<any>;
   let effects: TodoEffects;
 

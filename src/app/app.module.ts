@@ -13,11 +13,11 @@ import { AppComponent } from './app.component';
 import { TodoPageComponent } from './components/todo-page/todo-page.component';
 import { TodoDetailsComponent } from './components/todo-details/todo-details.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import * as TodoReducer from './reducers/todo.reducer';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoEffects } from './effects/todo.effects';
 import { SharedModule } from './shared.module';
 import { InMemTodoService } from './services/inMemoryTodo.service';
+import {appReducers} from './reducers/todo.reducer';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { InMemTodoService } from './services/inMemoryTodo.service';
     HttpClientInMemoryWebApiModule.forRoot(InMemTodoService, { delay: 1000 }),
     SharedModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ todo: TodoReducer.reducer }),
+    StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([TodoEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],

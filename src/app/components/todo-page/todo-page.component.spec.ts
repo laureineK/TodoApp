@@ -4,7 +4,7 @@ import { Store, StoreModule } from '@ngrx/store';
 import { SharedModule } from 'src/app/shared.module';
 import { TodoListComponent } from '../todo-list/todo-list.component';
 import * as TodoActions from './../../actions/todo.actions';
-import { IState as TodoState, reducer as TodoReducer } from './../../reducers/todo.reducer';
+import { TodoState as TodoState, reducer as TodoReducer } from './../../reducers/todo.reducer';
 import { TodoPageComponent } from './todo-page.component';
 
 describe('TodoPageComponent', () => {
